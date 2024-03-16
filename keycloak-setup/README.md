@@ -39,7 +39,7 @@ Use these steps to create the first realm.
 3. Enter <code>myrealm</code> in the <b>Realm name</b> field.
 4. Click <b>Create</b>.
 
-![image info](./images/add-realm.png)
+![image info](/images/keycloak-setup/add-realm.png)
 
 
 ## Create a user
@@ -56,14 +56,14 @@ Initially, the realm has no users. Use these steps to create a user:
 
 6. Click <b>Create</b>.
 
-![image info](./images/add-user.png)
+![image info](/images/keycloak-setup/add-user.png)
 
 This user needs a password to log in. To set the initial password:
 1. Click Credentials at the top of the page.
 2. Fill in the Set password form with a password.
 3. Toggle Temporary to Off so that the user does not need to update this password at the first login.
 
-![image info](./images/set-password.png)
+![image info](/images/keycloak-setup/set-password.png)
 
 ## Log in to the Account Console
 You can now log in to the Account Console to verify this user is configured correctly.
@@ -74,7 +74,7 @@ You can now log in to the Account Console to verify this user is configured corr
 
 As a user in the Account Console, you can manage your account including modifying your profile, adding two-factor authentication, and including identity provider accounts.
 
-![image info](./images/account-console.png)
+![image info](/images/keycloak-setup/account-console.png)
 
 
 ## Secure the first application
@@ -87,7 +87,7 @@ To secure the first application, you start by registering the application with y
 5. Fill in the form with the following values:
     - <b>Client type</b>: <code>OpenID Connect</code>
     - <b>Client ID</b>: <code>myclient</code>
-    ![image info](./images/add-client-1.png)
+    ![image info](/images/keycloak-setup/add-client-1.png)
 
 6. Click <b>Next</b>
 7. Confirm that <b>Standard flow</b> is enabled.
