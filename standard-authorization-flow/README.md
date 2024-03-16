@@ -18,9 +18,9 @@ Figure 2.2
 
 The redirect to the browser sends and HTTP GET to the authorization server which looks like this
 
-```
-http://localhost:8080/realms/oauth-demo/protocol/openid-connect/auth?response_type=code&client_id=photo-app-code-flow-client&scopes=openid profile&redirect_uri=http://localhost:8081/callback&state=HjKDMN
-```
+
+> http://localhost:8080/realms/oauth-demo/protocol/openid-connect/auth?response_type=code&client_id=photo-app-code-flow-client&scopes=openid profile&redirect_uri=http://localhost:8081/callback&state=HjKDMN
+
 
 Next, the authorization server will usually require the user to authenticate. This step is essential in determining who the resource owner is and what rights they’re allowed to delegate to the client.
 
@@ -30,7 +30,7 @@ Figure 2.3
 
 ![image info](/images//standard-authorization-flow/resource-owner-login.jpg)
 
-![image info](/images/standard-authorization-flow/login-at-server.png)
+![image info](/images/standard-authorization-flow/login-at-server.png?height=100)
 
 Next, the user authorizes the client application (figure 2.4). In this step, the resource owner chooses to delegate some portion of their authority to the client application. 
 
@@ -48,9 +48,9 @@ Figure 2.5
 
 This in turn causes the browser to issue the following GET request back to the client. Since we’re using the authorization code grant type, this redirect includes the special code query parameter. The value of this parameter is a one-time-use credential known as the authorization code, and it represents the result of the user’s authorization decision.
 
-```
-http://localhost:8081/callback?state=HjKDMN&session_state=aefa4dfe-50ba-4249-9d7d-c1fcdba46fd1&iss=http%3A%2F%2Flocalhost%3A8080%2Frealms%2Foauth-demo&code=f6412402-5736-47f1-9db8-b10ca5033b10.aefa4dfe-50ba-4249-9d7d-c1fcdba46fd1.ce302a08-812e-418f-a2f9-440893a93272 
-```
+
+> http://localhost:8081/callback?state=HjKDMN&session_state=aefa4dfe-50ba-4249-9d7d-c1fcdba46fd1&iss=http%3A%2F%2Flocalhost%3A8080%2Frealms%2Foauth-demo&code=f6412402-5736-47f1-9db8-b10ca5033b10.aefa4dfe-50ba-4249-9d7d-c1fcdba46fd1.ce302a08-812e-418f-a2f9-440893a93272 
+
 
 The client can parse this parameter to get the authorization code value when the request comes in, and it will use that code in the next step. The client will also check that the value of the state parameter matches the value that it sent in the previous step.
 
