@@ -30,7 +30,8 @@ Figure 2.3
 
 ![image info](/images//standard-authorization-flow/resource-owner-login.jpg)
 
-![image info](/images/standard-authorization-flow/login-at-server.png?height=100)
+<img src="../images/standard-authorization-flow/login-at-server.png" width="250"/>  
+
 
 Next, the user authorizes the client application (figure 2.4). In this step, the resource owner chooses to delegate some portion of their authority to the client application. 
 
