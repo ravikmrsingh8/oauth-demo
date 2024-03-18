@@ -10,10 +10,10 @@ In Client page select Advanced Tab and make sure Proof Key for Code Exchange Cod
 
 If the client is registered as confidential client then <code>client_secret</code> would be needed while exchanging authorization code with token at token endpoint of Authorization server. This will provide an additional layer of security to confidential clients. 
 
-Public clients do not possess the <code>client_secret</code> and only client_secret is not needed for code-token exchange. 
+Public clients do not possess the <code>client_secret</code>. client_secret is not needed for code-token exchange in PKCE flow. 
 
 
-<img src="../../images/pkce-authorization-flow/client-config.png" width="400"/>
+![image info](/images/pkce-authorization-flow/client-config.png)
 
 
 ### Code Verifier and Code Challenge Generation
