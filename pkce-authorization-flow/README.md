@@ -43,7 +43,10 @@ When a user kicks off a PKCE authorization flow in your app, here’s what takes
 
 <hr />
 
-PKCE is intended for use with public clients, confidential clients can use this method as well. Checkout the [Sample code & PKCE Flow](./pkce-in-action.md)
-
+Authorization code grant with PKCE in detail
 
 ![image info](/images/pkce-authorization-flow/pkce-detailed-flow.jpg)
+
+<hr />
+
+PKCE is intended for use with public clients, confidential clients can use this method as well. Checkout the [Sample code & PKCE Flow](./pkce-in-action.md)
