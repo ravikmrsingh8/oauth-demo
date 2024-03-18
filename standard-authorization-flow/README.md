@@ -19,7 +19,7 @@ Figure 2.2
 The redirect to the browser sends and HTTP GET to the authorization server which looks like this
 
 
-> http://localhost:8080/realms/oauth-demo/protocol/openid-connect/auth?response_type=code&client_id=photo-app-code-flow-client&scopes=openid profile&redirect_uri=http://localhost:8081/callback&state=HjKDMN
+> http://localhost:8080/realms/oauth-demo/protocol/openid-connect/auth?response_type=code&client_id=photo-app-code-flow-client&scope=openid&redirect_uri=http://localhost:8081/callback&state=HjKDMN
 
 
 Next, the authorization server will usually require the user to authenticate. This step is essential in determining who the resource owner is and what rights they’re allowed to delegate to the client.
