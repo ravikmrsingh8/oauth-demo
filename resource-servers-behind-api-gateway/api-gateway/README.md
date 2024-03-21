@@ -1,7 +1,7 @@
 ##  API Gateway
 An API gateway simplifies the communication between a client and a service, whether that be between a user’s web browser and a server, or between a frontend application and the backend application that it relies on. The main purpose of integrating the API gateway in microservice communication is, API Gateway acts as a single entry point to access services.
 
-![image info](/images/gateway.png)
+<img alt="image info" src="./images/gateway.png" title="Api Gateway" width="300"/>
 
 
 ## Spring Cloud API gateway
