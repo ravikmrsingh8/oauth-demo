@@ -1,0 +1,67 @@
+{
+	"info": {
+		"_postman_id": "377c0304-b87f-4c3c-a24d-76b5492d540e",
+		"name": "Api Gateway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33341231"
+	},
+	"item": [
+		{
+			"name": "products",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJydHJYYXYwRVhrRTBkLUFTRTROZFd0MDZlcFVmbHBOR0JkYzZtN2V6Y3AwIn0.eyJleHAiOjE3MTExMDcxNDgsImlhdCI6MTcxMTEwNjg0OCwiYXV0aF90aW1lIjoxNzExMTA2Njk1LCJqdGkiOiJjMTJjMDM0OS0xMDcyLTQxZjgtYWIxYi0wMTJjNTRmMTVjMjYiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvcmVhbG1zL29hdXRoLWRlbW8iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZjA2ZTFhMzAtMjE4Ny00NmFjLWIzZWQtNWFiYTU4ZGE3ZjRjIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoicGhvdG8tYXBwLWNvZGUtZmxvdy1jbGllbnQiLCJzZXNzaW9uX3N0YXRlIjoiOTE5YzJhM2ItNmU4My00ZmViLWIzYWItZDc0OTlmZDkzOWE5IiwiYWNyIjoiMCIsImFsbG93ZWQtb3JpZ2lucyI6WyIiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGV2ZWxvcGVyIiwidW1hX2F1dGhvcml6YXRpb24iLCJkZWZhdWx0LXJvbGVzLW9hdXRoLWRlbW8iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIFJlYWQgZW1haWwgcmVhZHVzZXIiLCJzaWQiOiI5MTljMmEzYi02ZTgzLTRmZWItYjNhYi1kNzQ5OWZkOTM5YTkiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJSYXZpIFNpbmdoIiwicHJlZmVycmVkX3VzZXJuYW1lIjoicmF2aWttcnNpbmdoOCIsImdpdmVuX25hbWUiOiJSYXZpIiwiZmFtaWx5X25hbWUiOiJTaW5naCIsImVtYWlsIjoicmF2aS5rbXIuc2luZ2g4QGdtYWlsLmNvbSJ9.gOJ5AHBbDnn4PIxLyHhimyJqNPRpkVB7lNDLyMCvmFJSFEC-sOH3qkOAcaAcCpNzXeIidRAMVtai-PHzPHHanomoSAc0L5DztvfGxWX3DxZErR22TT9a50NpYOqKPIb7MY4E5am2eJij3ZJkZjE8YpMAhu13PDWTkBSGgbU64fG8yn0kxeEQXNKmyH1LXDy3WY1p0k3k-ms0TkJwr22aXtZZ7lYaCaHBjHsJFZqiYSkhzUnd2Sg5U6NSSx7WwEw5HMAKIVfX_oOxyv9RYeQ3-VecOcGXRFxyEp24fAvSGGCjWes778ct3U1mlwi8TkmAOMPdkaq0W5IP5Pg2KRGiXQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9000/products",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJydHJYYXYwRVhrRTBkLUFTRTROZFd0MDZlcFVmbHBOR0JkYzZtN2V6Y3AwIn0.eyJleHAiOjE3MTExMDcxNDgsImlhdCI6MTcxMTEwNjg0OCwiYXV0aF90aW1lIjoxNzExMTA2Njk1LCJqdGkiOiJjMTJjMDM0OS0xMDcyLTQxZjgtYWIxYi0wMTJjNTRmMTVjMjYiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvcmVhbG1zL29hdXRoLWRlbW8iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZjA2ZTFhMzAtMjE4Ny00NmFjLWIzZWQtNWFiYTU4ZGE3ZjRjIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoicGhvdG8tYXBwLWNvZGUtZmxvdy1jbGllbnQiLCJzZXNzaW9uX3N0YXRlIjoiOTE5YzJhM2ItNmU4My00ZmViLWIzYWItZDc0OTlmZDkzOWE5IiwiYWNyIjoiMCIsImFsbG93ZWQtb3JpZ2lucyI6WyIiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGV2ZWxvcGVyIiwidW1hX2F1dGhvcml6YXRpb24iLCJkZWZhdWx0LXJvbGVzLW9hdXRoLWRlbW8iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIFJlYWQgZW1haWwgcmVhZHVzZXIiLCJzaWQiOiI5MTljMmEzYi02ZTgzLTRmZWItYjNhYi1kNzQ5OWZkOTM5YTkiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJSYXZpIFNpbmdoIiwicHJlZmVycmVkX3VzZXJuYW1lIjoicmF2aWttcnNpbmdoOCIsImdpdmVuX25hbWUiOiJSYXZpIiwiZmFtaWx5X25hbWUiOiJTaW5naCIsImVtYWlsIjoicmF2aS5rbXIuc2luZ2g4QGdtYWlsLmNvbSJ9.gOJ5AHBbDnn4PIxLyHhimyJqNPRpkVB7lNDLyMCvmFJSFEC-sOH3qkOAcaAcCpNzXeIidRAMVtai-PHzPHHanomoSAc0L5DztvfGxWX3DxZErR22TT9a50NpYOqKPIb7MY4E5am2eJij3ZJkZjE8YpMAhu13PDWTkBSGgbU64fG8yn0kxeEQXNKmyH1LXDy3WY1p0k3k-ms0TkJwr22aXtZZ7lYaCaHBjHsJFZqiYSkhzUnd2Sg5U6NSSx7WwEw5HMAKIVfX_oOxyv9RYeQ3-VecOcGXRFxyEp24fAvSGGCjWes778ct3U1mlwi8TkmAOMPdkaq0W5IP5Pg2KRGiXQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "10fa662b-0558-453c-a34a-8ac8d8a308fe",
+		"name": "OAuth Demo Authorization Code Flow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33341231"
+	},
+	"item": [
+		{
+			"name": "Authorize",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/realms/oauth-demo/protocol/openid-connect/auth?response_type=code&client_id=photo-app-code-flow-client&scope=openid readuser Read&redirect_uri=http://localhost:8081/callback&state=HYRT75JDK",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"realms",
+						"oauth-demo",
+						"protocol",
+						"openid-connect",
+						"auth"
+					],
+					"query": [
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "client_id",
+							"value": "photo-app-code-flow-client"
+						},
+						{
+							"key": "scope",
+							"value": "openid readuser Read"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8081/callback"
+						},
+						{
+							"key": "state",
+							"value": "HYRT75JDK"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "2g8hHN5FiGQDtjIrWlZ084bi03wSQPkh",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "photo-app-code-flow-client",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "19b27a11-793a-4aa7-9782-60406a6ad5c5.919c2a3b-6e83-4feb-b3ab-d7499fd939a9.ce302a08-812e-418f-a2f9-440893a93272",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8081/callback",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/realms/oauth-demo/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"realms",
+						"oauth-demo",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Resource Server",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJydHJYYXYwRVhrRTBkLUFTRTROZFd0MDZlcFVmbHBOR0JkYzZtN2V6Y3AwIn0.eyJleHAiOjE3MTA4NzAwOTEsImlhdCI6MTcxMDg2OTc5MSwiYXV0aF90aW1lIjoxNzEwODY4NzIzLCJqdGkiOiIyMDg3ZWEzNS0wNGEzLTQzY2MtODg0Yy0xZTQ3YjY5YzYwOWMiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvcmVhbG1zL29hdXRoLWRlbW8iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZjA2ZTFhMzAtMjE4Ny00NmFjLWIzZWQtNWFiYTU4ZGE3ZjRjIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoicGhvdG8tYXBwLWNvZGUtZmxvdy1jbGllbnQiLCJzZXNzaW9uX3N0YXRlIjoiNzk4NzlkYzMtNDMxOS00ZWNiLWJkYjUtYTZmZTJhNTBjNDljIiwiYWNyIjoiMCIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjgwODEiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGV2ZWxvcGVyIiwidW1hX2F1dGhvcml6YXRpb24iLCJkZWZhdWx0LXJvbGVzLW9hdXRoLWRlbW8iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIHJlYWR1c2VyIiwic2lkIjoiNzk4NzlkYzMtNDMxOS00ZWNiLWJkYjUtYTZmZTJhNTBjNDljIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJuYW1lIjoiUmF2aSBTaW5naCIsInByZWZlcnJlZF91c2VybmFtZSI6InJhdmlrbXJzaW5naDgiLCJnaXZlbl9uYW1lIjoiUmF2aSIsImZhbWlseV9uYW1lIjoiU2luZ2giLCJlbWFpbCI6InJhdmkua21yLnNpbmdoOEBnbWFpbC5jb20ifQ.L1QVjSpU_ApoFkZutx_sDgPKVHA0uIN1OGLZAJSgMFHOsG__icUAy6mlOA1r8EgtMwIFDEBOUQb87-UfaHUtyFH5ugb9431-Ev9Fbs22yMA2CYFSOhDUUVqpcp8pU4RVeuiWH45hutbZy9pIb56wKvjDbk6W8agcEYMRLirFy1-y0en0-dvj2qDnPv27gkxAUWtzmeXmH8FAaxUrnVp4Cbo_0QULWLiYEcmbl8qGOgpfMV_Pzy5H2jAsZLZAFMF137WhXayg1AShf3deELQ__OH5TdepEgcBc8VPprHpjZeGdBqvWyRHynQwg6nARnpDEY3s9qsCecL0dE3X2nVdyw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/users/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"users",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
