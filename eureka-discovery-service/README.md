@@ -71,14 +71,16 @@ logging.level.com.netflix.discovery=OFF
 
 We have disabled properties register-with-eureka and fetch-registry in our standalone application but in production, generally, there is a cluster of eureka servers and they register among themselves as clients. But for learning purposes, we are running the server on the localhost and we don’t need a cluster. So we need to switch off the client's behavior so that it doesn't try to register itself. 
 
-At this point if we start  Application we can see eureka server running at port 8761 with microservice instances registered.
+At this point if we start  Application we can see eureka server running at port 8761 with no microservice instances registered.
 
 ![image info](/images/eureka-service-discovery/eureka-server-runnig-alone.png)
 
 
 ## Eureka Client Setup
 
-We will create 2 Microservices which will be Eureka clients, <code>product-service</code> and <code>user-service</code> example shown is for <code>product-service</code>, similar steps are required for <code>user-service</code> as well
+We will create 2 Microservices which will be Eureka clients, <code>product-service</code> and <code>user-service</code>
+
+ Example shown here is for <code>product-service</code>, similar steps are required for <code>user-service</code> as well
 
 ### 1. Add required dependencies
 
@@ -109,7 +111,7 @@ To include the Eureka Client in your project, use the starter with a group ID of
 </dependencyManagement>
 ```
 
-### 2. Add @EnableEurekaClient on main application class
+### 2. Add @EnableDiscoveryClient on main application class
 ```java
 @EnableDiscoveryClient
 @SpringBootApplication
@@ -157,7 +159,21 @@ Add <b>Reactive Gateway</b> <code> SPRING CLOUD ROUTING </code>,  <b>Eureka Disc
 </dependencies>
 ```
 
-### 2. Application properties file
+### 2. Enable @EnableDiscoveryClient config on main class
+```java
+@EnableDiscoveryClient
+@SpringBootApplication
+public class ApiGatewayApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ApiGatewayApplication.class, args);
+	}
+
+}
+
+```
+
+### 3. Application properties file
 Define application name, server port and gateway routes in application.properties file
 ```
 spring.application.name=api-gateway
@@ -192,7 +208,7 @@ management.endpoints.web.exposure.include=*
 Now Start API Gateway as well which will register itself with the Eureka server
 
 ## Running APP 
-We have created Protected APIs using OAuth2 so first start the keycloak server. and then import these postman collections to checkout the request format
+We have created protected APIs using OAuth2, First start the keycloak server and then import these postman collections to checkout the request format
 
 [PostMan Collection Link](/postman-collections/)
 Get a token using either by standard auth flow or by password grant and use that token in Authorization Header and make Http GET request to the products or users end point
