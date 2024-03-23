@@ -216,3 +216,16 @@ Get a token using either by standard auth flow or by password grant and use that
 ![image info](/images/eureka-service-discovery/api-request.png)
 
 
+## Some Important Notes on Eureka
+
+1. An application registered with Eureka is known as Eureka instance. Every Eureka instance is also a Eureka Client as it can fetch the details of other Eureka instances also.
+
+2. If we are using the Eureka server in standalone mode, i.e. there’s only one Eureka server then we need to set <code>eureka.client.fetch-registry</code> and <code>eureka.client.register-with-eureka</code> to false so that it doesn’t try to register itself with itself as the Eureka server also has a built-in Eureka client.
+
+3. A service is registered with the Eureka server when the <code>eureka.client.register-with-eureka</code> is set to true (by default, true) and it becomes an Eureka instance. Then this instance keeps sending heartbeats to the Eureka server. If Eureka server doesn’t receive a heartbeat from any instance within a particular time limit (by default, 30 secs) then it will consider that instance as DOWN and will de-register it from the service registry.
+
+4. A Eureka instance is also a Eureka client as it fetches the registry from Eureka server containing the details of other instances. In order to enable it, <code>eureka.client.fetch-registry</code> is set to true (by default, true). As soon as a service registers itself with the server, it fetches the registry and catches it. It keeps on checking the registry at regular interval (by default, 30 secs) and if there is any change in the registry, it fetches the update only and the unchanged part is still used from the cache.
+
+5. Each Eureka instance uses a service endpoint, <code>DiscoveryClient</code> in order to get a list of all the <code>ServiceInstance</code> instances of the services registered on the registry. 
+
+6. We can also see all the registered instances at http://localhost:8761/eureka/apps
