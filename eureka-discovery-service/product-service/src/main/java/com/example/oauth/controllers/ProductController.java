@@ -9,6 +9,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,5 +31,13 @@ public class ProductController {
         headers.add("X-Service-Instance", config.getInstanceId());
         headers.forEach((key, value)-> System.out.println("Key:" + key + "\n Value:"+ value));
         return new ResponseEntity<>(service.getProducts(), headers, HttpStatus.OK);
+    }
+
+    @GetMapping("/{productId}")
+    public ResponseEntity<Product> getProduct(@PathVariable("productId") int id) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("X-Service-Instance", config.getInstanceId());
+        headers.forEach((key, value)-> System.out.println("Key:" + key + "\n Value:"+ value));
+        return new ResponseEntity<>(service.getProduct(id), headers, HttpStatus.OK);
     }
 }

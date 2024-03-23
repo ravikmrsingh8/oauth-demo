@@ -1,12 +1,11 @@
-package com.example.oauth.dto;
+package com.example.oauth.client.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Rating {
-    @JsonProperty("rate")
+
     private double rate;
 
-    @JsonProperty("count")
     private int count;
 
     public Rating() {

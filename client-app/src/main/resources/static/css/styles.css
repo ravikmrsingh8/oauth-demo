@@ -1,0 +1,28 @@
+.navbar {
+    background: linear-gradient(to right, #bc8c97, #a3809e, #7d79a1, #4c7499, #096d83);
+}
+.navbar {
+    color: #ffffff;
+}
+.navbar .navbar-brand{
+    color: #ffffff;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 10px;
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 250px;
+}
+
+.img-container {
+    padding: 5px;
+    background: #FFFFFF;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
