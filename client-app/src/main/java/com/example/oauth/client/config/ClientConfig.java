@@ -2,14 +2,14 @@ package com.example.oauth.client.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.RestClient;
 
 @Configuration
-public class WebConfig {
+public class ClientConfig {
 
     @Bean
-    RestTemplate template(){
-        return new RestTemplate();
+    public RestClient restClient() {
+        return  RestClient.create();
     }
 
 }

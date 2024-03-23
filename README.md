@@ -31,3 +31,15 @@ Scope is used by OAuth2 to restrict access to a resource. When requesting an acc
 The OAuth 2 documentation says that <i>"Scope is a mechanism in OAuth 2.0 to limit an application’s access to a user’s account. An application can request one or more scopes, this information is then presented to the user in the consent screen, and the access token issued to the application will be limited to the scopes granted.
 
 The value of the scope parameter is expressed as a list of space-delimited, case-sensitive strings. The strings are defined by the authorization server. If the value contains multiple space-delimited strings, their order does not matter, and each string adds an additional access range to the requested scope."</i>
+
+
+
+## Hands On
+1. We will create an Outh2Client App which will display the list of products.
+This client will send the request to API Gateway. API Gateway will Consult Eureka to the find the resource server instances and then route the request to the resource server in round robin fashion.
+    
+    Spring MVC App (OAuth2 Client use standard code flow for Authorization) wil look like below   
+
+    ![image info](/images/client-app/home-page.png)
+
+2. A React SPA(OAuth2 Client and Use PKCE for Authorization) which will display the List of Users

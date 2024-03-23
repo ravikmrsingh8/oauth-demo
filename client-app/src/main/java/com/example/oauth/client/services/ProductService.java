@@ -3,18 +3,14 @@ package com.example.oauth.client.services;
 import com.example.oauth.client.models.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.RestClient;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
@@ -31,7 +27,7 @@ public class ProductService {
     private OAuth2AuthorizedClientService authorizedClientService;
 
     @Autowired
-    RestTemplate restTemplate;
+    RestClient restClient;
 
     public List<Product> getProducts(){
         Product[] products = getProductsFromResourceServer();
@@ -45,27 +41,25 @@ public class ProductService {
     private Product getProductByIdFromService(int id) {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Authorization", "Bearer "+ getAccessToken());
-        HttpEntity<Void> httpEntity = new HttpEntity<>(headers);
-
         URI uri = UriComponentsBuilder.fromHttpUrl(apiGatewayBaseUrl).path("/products/{id}").buildAndExpand(id).toUri();
-        ResponseEntity<Product> response = restTemplate.exchange(uri, HttpMethod.GET, httpEntity, Product.class);
-        if (response.getStatusCode() == HttpStatus.OK) {
-            return response.getBody();
-        }
-        throw new RuntimeException("Couldn't fetch product");
+
+        return restClient.get()
+                .uri(uri)
+                .headers(httpHeaders -> httpHeaders.addAll(headers))
+                .retrieve()
+                .body(Product.class);
     }
 
     private Product[] getProductsFromResourceServer() {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Authorization", "Bearer "+ getAccessToken());
-        HttpEntity<Void> httpEntity = new HttpEntity<>(headers);
 
         URI uri = UriComponentsBuilder.fromHttpUrl(apiGatewayBaseUrl).path("/products").build().toUri();
-        ResponseEntity<Product[]> response = restTemplate.exchange(uri, HttpMethod.GET, httpEntity, Product[].class);
-        if (response.getStatusCode() == HttpStatus.OK) {
-            return response.getBody();
-        }
-        throw new RuntimeException("Couldn't fetch products");
+        return restClient.get()
+                .uri(uri)
+                .headers(httpHeaders -> httpHeaders.addAll(headers))
+                .retrieve()
+                .body(Product[].class);
     }
 
     private String getAccessToken() {
