@@ -4,6 +4,8 @@ import com.example.oauth.client.models.Product;
 import com.example.oauth.client.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
+import org.springframework.security.oauth2.client.annotation.RegisteredOAuth2AuthorizedClient;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,8 +22,10 @@ public class ProductController {
 
     @GetMapping("/products")
     public String products(@AuthenticationPrincipal OidcUser principal,
+                           @RegisteredOAuth2AuthorizedClient("product-client") OAuth2AuthorizedClient authorizedClient,
                            Model model) {
-        List<Product> products = productService.getProducts();
+        String accessToken = authorizedClient.getAccessToken().getTokenValue();
+        List<Product> products = productService.getProducts(accessToken);
         model.addAttribute("products",products);
         model.addAttribute("userName", principal.getUserInfo().getFullName());
         return "products";
@@ -30,8 +34,10 @@ public class ProductController {
     @GetMapping("/products/{id}")
     public String getProductById(@PathVariable("id") int id,
                                  @AuthenticationPrincipal OidcUser principal,
+                                 @RegisteredOAuth2AuthorizedClient("product-client") OAuth2AuthorizedClient authorizedClient,
                                  Model model) {
-        Product product = productService.getProductById(id);
+        String accessToken = authorizedClient.getAccessToken().getTokenValue();
+        Product product = productService.getProductById(accessToken, id);
         model.addAttribute("product", product);
         model.addAttribute("userName", principal.getUserInfo().getFullName());
         return "product-details";

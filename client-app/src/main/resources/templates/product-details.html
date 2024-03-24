@@ -13,8 +13,10 @@
 <div th:insert="~{fragments/navbar :: header}">&nbsp;</div>
 </div>
 <div class="container my-2">
+    <div class="details-image-container">
+        <img th:src="${product.image}" class="figure-img rounded" alt="...">
+    </div>
 
-    <img th:src="${product.image}" height="350px" class="figure-img rounded" alt="...">
 
     <div class="description">
         <table class="table">
