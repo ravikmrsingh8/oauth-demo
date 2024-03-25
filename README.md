@@ -22,16 +22,7 @@ The token represents the access that's been delegated to the client. OAuth trans
 4. The client receives a Token from the Authorization server.
 5. The client presents the Token to the Protected Resource
 
-
-## Entities in OAuth
-
-### Scopes 
-Scope is used by OAuth2 to restrict access to a resource. When requesting an access token from an authorization server, a client application will include a scope request parameter specifying a list of scopes or an amount of access to user Resources the generated access token should have. In turn, the authorization server uses the “scope” response parameter to inform the client of the scope of the access token issued.
-
-The OAuth 2 documentation says that <i>"Scope is a mechanism in OAuth 2.0 to limit an application’s access to a user’s account. An application can request one or more scopes, this information is then presented to the user in the consent screen, and the access token issued to the application will be limited to the scopes granted.
-
-The value of the scope parameter is expressed as a list of space-delimited, case-sensitive strings. The strings are defined by the authorization server. If the value contains multiple space-delimited strings, their order does not matter, and each string adds an additional access range to the requested scope."</i>
-
+Work in Progress...
 
 
 ## Hands On
@@ -42,4 +33,4 @@ This client will send the request to API Gateway. API Gateway will Consult Eurek
 
     ![image info](/images/client-app/home-page.png)
 
-2. A React SPA(OAuth2 Client and Use PKCE for Authorization) which will display the List of Users
+2. [A React SPA](https://github.com/ravikmrsingh8/client-app-spa)(OAuth2 Client and Use PKCE for Authorization) used MSAL (Microsft Authentication Library for JS) (Deployed inAzure https://orange-river-0f9866400.5.azurestaticapps.net/).  Which displays the Basic User profile information Using [Microsoft Graph API](https://learn.microsoft.com/en-us/graph/api/overview?view=graph-rest-1.0) 
