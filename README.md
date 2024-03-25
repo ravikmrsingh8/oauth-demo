@@ -10,7 +10,7 @@ The application requests authorization from the owner of the resource and receiv
 
 ## The OAuth Dance
 OAuth is a complex security protocol with different components sending pieces of information to each other in a precise balance akin to a technological dance :blush:.
-Fundamentally, there are two major steps are involve in in an OAuth transaction:
+Fundamentally, there are two major steps involve in an OAuth transaction:
 1. issuing a token 
 2. using the token
 
