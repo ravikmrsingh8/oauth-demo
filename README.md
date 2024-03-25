@@ -34,3 +34,6 @@ This client will send the request to API Gateway. API Gateway will Consult Eurek
     ![image info](/images/client-app/home-page.png)
 
 2. [A React SPA](https://github.com/ravikmrsingh8/client-app-spa)(OAuth2 Client and Use PKCE for Authorization) used MSAL (Microsft Authentication Library for JS) (Deployed inAzure https://orange-river-0f9866400.5.azurestaticapps.net/).  Which displays the Basic User profile information Using [Microsoft Graph API](https://learn.microsoft.com/en-us/graph/api/overview?view=graph-rest-1.0) 
+
+
+    ![image info](/images/react-spa-client-app/client-app-spa.png)
