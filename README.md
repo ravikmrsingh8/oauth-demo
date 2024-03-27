@@ -10,7 +10,7 @@ The application requests authorization from the owner of the resource and receiv
 
 ## The OAuth Dance
 OAuth is a complex security protocol with different components sending pieces of information to each other in a precise balance akin to a technological dance :blush:.
-Fundamentally, there are two major steps are involve in in an OAuth transaction:
+Fundamentally, there are two major steps involve in an OAuth transaction:
 1. issuing a token 
 2. using the token
 
@@ -29,7 +29,7 @@ Work in Progress...
 1. We will create an Outh2Client App which will display the list of products.
 This client will send the request to API Gateway. API Gateway will Consult Eureka to the find the resource server instances and then route the request to the resource server in round robin fashion.
     
-    Spring MVC App (OAuth2 Client use standard code flow for Authorization) wil look like below   
+    Spring MVC App (OAuth2 Client use standard code flow for Authorization)
 
     ![image info](/images/client-app/home-page.png)
 
